@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Arvoh Software - Building intelligent software from agentic AI to Python packages">
+    <meta name="description"
+        content="Arvoh Software - Building intelligent software from agentic AI to Python packages">
     <meta name="keywords" content="AI, Python, Software Development, Agentic AI, Maticlib">
     <meta name="author" content="Anubroto Ghose">
     <title>Arvoh Software | Intelligent Software Solutions</title>
     <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --header-shadow: rgba(0, 0, 0, 0.1);
+            --text-color: #333;
+            --text-muted: #666;
+            --section-bg-white: white;
+            --section-bg-light: #f8f9fa;
+            --card-shadow: rgba(0, 0, 0, 0.1);
+            --btn-primary-bg: white;
+            --btn-primary-text: #667eea;
+            --footer-bg: #1a1a1a;
+            --nav-link: #333;
+            --nav-link-hover: #667eea;
+            --hero-h1: white;
+            --hero-p: rgba(255, 255, 255, 0.95);
+        }
+
+        .dark-mode {
+            --header-bg: rgba(18, 18, 18, 0.95);
+            --header-shadow: rgba(0, 0, 0, 0.5);
+            --text-color: #e0e0e0;
+            --text-muted: #b0b0b0;
+            --section-bg-white: #1e1e1e;
+            --section-bg-light: #121212;
+            --card-shadow: rgba(0, 0, 0, 0.3);
+            --btn-primary-bg: #667eea;
+            --btn-primary-text: white;
+            --nav-link: #e0e0e0;
+            --nav-link-hover: #8194f2;
+            --hero-h1: #fff;
+            --hero-p: rgba(255, 255, 255, 0.9);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,9 +53,10 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-color);
+            background: var(--bg-gradient);
             min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
         }
 
         .container {
@@ -29,13 +66,14 @@
         }
 
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--header-bg);
             backdrop-filter: blur(10px);
             padding: 20px 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px var(--header-shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: background 0.3s, box-shadow 0.3s;
         }
 
         .header-content {
@@ -64,8 +102,13 @@
             color: #667eea;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav a {
-            color: #333;
+            color: var(--nav-link);
             text-decoration: none;
             margin-left: 30px;
             font-weight: 500;
@@ -73,7 +116,46 @@
         }
 
         nav a:hover {
-            color: #667eea;
+            color: var(--nav-link-hover);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 30px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--nav-link);
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            color: var(--nav-link-hover);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .sun-icon {
+            display: none;
+        }
+
+        .moon-icon {
+            display: block;
+        }
+
+        .dark-mode .sun-icon {
+            display: block;
+        }
+
+        .dark-mode .moon-icon {
+            display: none;
         }
 
         .hero {
@@ -87,12 +169,14 @@
             font-weight: 800;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            color: var(--hero-h1);
         }
 
         .hero p {
             font-size: 24px;
             margin-bottom: 40px;
             opacity: 0.95;
+            color: var(--hero-p);
         }
 
         .cta-buttons {
@@ -113,8 +197,8 @@
         }
 
         .btn-primary {
-            background: white;
-            color: #667eea;
+            background: var(--btn-primary-bg);
+            color: var(--btn-primary-text);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
@@ -135,15 +219,16 @@
         }
 
         .features {
-            background: white;
+            background: var(--section-bg-white);
             padding: 80px 20px;
+            transition: background 0.3s;
         }
 
         .features h2 {
             text-align: center;
             font-size: 42px;
             margin-bottom: 60px;
-            color: #333;
+            color: var(--text-color);
         }
 
         .feature-grid {
@@ -157,10 +242,10 @@
         .feature-card {
             padding: 30px;
             border-radius: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--bg-gradient);
             color: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 30px var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .feature-card:hover {
@@ -184,24 +269,26 @@
         }
 
         .products {
-            background: #f8f9fa;
+            background: var(--section-bg-light);
             padding: 80px 20px;
+            transition: background 0.3s;
         }
 
         .products h2 {
             text-align: center;
             font-size: 42px;
             margin-bottom: 60px;
-            color: #333;
+            color: var(--text-color);
         }
 
         .product-showcase {
             max-width: 900px;
             margin: 0 auto;
-            background: white;
+            background: var(--section-bg-white);
             padding: 50px;
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px var(--card-shadow);
+            transition: background 0.3s, box-shadow 0.3s;
         }
 
         .product-showcase h3 {
@@ -212,7 +299,7 @@
 
         .product-showcase p {
             font-size: 18px;
-            color: #666;
+            color: var(--text-muted);
             margin-bottom: 20px;
         }
 
@@ -233,7 +320,7 @@
         }
 
         .github-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--bg-gradient);
             padding: 80px 20px;
             color: white;
             text-align: center;
@@ -275,10 +362,11 @@
         }
 
         footer {
-            background: #1a1a1a;
+            background: var(--footer-bg);
             color: white;
             padding: 40px 20px;
             text-align: center;
+            transition: background 0.3s;
         }
 
         .footer-content {
@@ -321,18 +409,19 @@
                 padding: 30px;
             }
 
-            nav {
+            nav a {
                 display: none;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
         <div class="header-content">
             <div class="logo-section">
-                <img src="assets/brand-without-name.png" alt="Arvoh Software Logo" class="logo">
+                <img src="assets/arvohsoft-logo.png" alt="Arvoh Software Logo" class="logo">
                 <span class="company-name">Arvoh Software</span>
             </div>
             <nav>
@@ -340,6 +429,22 @@
                 <a href="#products">Products</a>
                 <a href="#github">GitHub</a>
                 <a href="#contact">Contact</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
@@ -350,7 +455,7 @@
             <h1>Building Intelligent Software</h1>
             <p>From Agentic AI to Python Packages</p>
             <div class="cta-buttons">
-                <a href="https://github.com/arvohsoft/maticlib" class="btn btn-primary">View Maticlib</a>
+                <a href="https://arvohsoft.github.io/maticlib/" class="btn btn-primary">View Maticlib</a>
                 <a href="#products" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
@@ -364,17 +469,20 @@
                 <div class="feature-card">
                     <div class="feature-icon">🤖</div>
                     <h3>Agentic AI Systems</h3>
-                    <p>Build intelligent agents that automate complex workflows and make autonomous decisions with cutting-edge AI technology.</p>
+                    <p>Build intelligent agents that automate complex workflows and make autonomous decisions with
+                        cutting-edge AI technology.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📦</div>
                     <h3>Python Packages</h3>
-                    <p>Open-source libraries that simplify AI integration, providing developers with clean and intuitive APIs.</p>
+                    <p>Open-source libraries that simplify AI integration, providing developers with clean and intuitive
+                        APIs.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3>Developer Tools</h3>
-                    <p>Create powerful SDKs and frameworks that accelerate AI-powered application development and deployment.</p>
+                    <p>Create powerful SDKs and frameworks that accelerate AI-powered application development and
+                        deployment.</p>
                 </div>
             </div>
         </div>
@@ -385,8 +493,10 @@
         <div class="container">
             <h2>Featured Product</h2>
             <div class="product-showcase">
+                <img src="assets/maticlib-logo.svg" alt="Maticlib Logo" style="height: 60px; margin-bottom: 20px;">
                 <h3>Maticlib</h3>
-                <p>A unified Python library for multi-LLM provider integration. Build AI agents with Google Gemini, Mistral AI, and custom endpoints using a single, elegant API.</p>
+                <p>A unified Python library for multi-LLM provider integration. Build AI agents with Google Gemini,
+                    Mistral AI, and custom endpoints using a single, elegant API.</p>
                 <div class="tech-stack">
                     <span class="tech-badge">Google Gemini</span>
                     <span class="tech-badge">Mistral AI</span>
@@ -394,8 +504,11 @@
                     <span class="tech-badge">Python 3.8+</span>
                     <span class="tech-badge">MIT License</span>
                 </div>
-                <p><strong>Install:</strong> <code style="background: #f4f4f4; padding: 5px 10px; border-radius: 5px;">pip install maticlib</code></p>
-                <a href="https://github.com/arvohsoft/maticlib" class="btn btn-primary" style="margin-top: 20px;">View on GitHub</a>
+                <p><strong>Install:</strong> <code
+                        style="background: #f4f4f4; padding: 5px 10px; border-radius: 5px;">pip install maticlib</code>
+                </p>
+                <a href="https://arvohsoft.github.io/maticlib/" class="btn btn-primary" style="margin-top: 20px;">View
+                    on GitHub</a>
             </div>
         </div>
     </section>
@@ -404,10 +517,12 @@
     <section id="github" class="github-section">
         <div class="container">
             <h2>Open Source Commitment</h2>
-            <p>All our projects are open source and community-driven. Join us in building the future of AI development.</p>
+            <p>All our projects are open source and community-driven. Join us in building the future of AI development.
+            </p>
             <a href="https://github.com/arvohsoft" class="github-btn">
                 <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                 </svg>
                 Visit Our GitHub
             </a>
@@ -420,12 +535,14 @@
             <div class="social-links">
                 <a href="https://github.com/arvohsoft" title="GitHub">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                     </svg>
                 </a>
                 <a href="mailto:arvohsoft@gmail.com" title="Email">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        <path
+                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                     </svg>
                 </a>
             </div>
@@ -435,5 +552,30 @@
             <p style="margin-top: 10px; opacity: 0.7;">&copy; 2025 Arvoh Software. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // Respect system preference if no saved preference
+            body.classList.add('dark-mode');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            // Save preference
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                localStorage.setItem('theme', '');
+            }
+        });
+    </script>
 </body>
+
 </html>

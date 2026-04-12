@@ -10,65 +10,66 @@ We create intelligent tools to empower developers building the next generation o
 
 ---
 
-## 🔍 What We Do
+## What We Do
 
 At **Arvoh Software**, we focus on the intersection of autonomy and developer productivity in AI systems.
 
-### 💡 Focus Areas
+### Focus Areas
 
-- 🤖 **Agentic AI Systems**  
+- **Agentic AI Systems**  
   Build intelligent agents that automate complex tasks and workflows across APIs and models.
 
-- 📦 **Python Libraries**  
+- **Python Libraries**  
   Intuitive, modern, and well-documented open-source packages designed for developer friendliness.
 
-- ⚙️ **AI-First Developer Tooling**  
+- **AI-First Developer Tooling**  
   Tools and SDKs that accelerate rapid prototyping and deployment of AI-powered solutions.
 
 ---
 
-## 🚀 Featured Project: [Maticlib](https://github.com/arvohsoft/maticlib)
+## Featured Project: [Maticlib](https://arvohsoft.github.io/maticlib/)
 
-> 🧠 A unified Python library for multi-LLM provider integration
+> A unified Python library for multi-LLM provider integration
 
 `maticlib` is our flagship package, enabling seamless interaction with multiple LLMs under one elegant API.
 
-### 🔧 Features
+### Features
 
-- 🔌 Unified API for **Google Gemini**, **Mistral AI**, and **custom endpoints**
-- 🧵 Built-in **async support** for concurrency
-- 🧪 Easy prompt chaining and agent construction
-- 🪪 MIT Licensed and production-ready
+- Unified API for **Google Gemini**, **Mistral AI**, and **custom endpoints**
+- Built-in **async support** for concurrency
+- Easy prompt chaining and agent construction
+- MIT Licensed and production-ready
 
-### 📦 Installation
+### Installation
 
 ```bash
 pip install maticlib
-````
+```
 
-[👉 View on GitHub](https://github.com/arvohsoft/maticlib)
+[View on GitHub](https://github.com/arvohsoft/maticlib)
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome collaboration!
 You can help by:
 
-* 🌟 Starring your favorite repositories
-* 🐛 Reporting issues and suggesting features
-* 🔧 Submitting pull requests
+* Starring your favorite repositories
+* Reporting issues and suggesting features
+* Submitting pull requests
 
 ---
 
-## 📫 Contact Us
+## Contact Us
 
-* 🌐 Website: [ArvohSoft.com](https://arvohsoft.github.io/arvohsoft/)
-* 📬 Email: [arvohsoft@gmail.com](mailto:arvohsoft@gmail.com)
-* 🐙 GitHub: [github.com/arvohsoft](https://github.com/arvohsoft)
-* 👨‍💻 Lead Developer: [Anubroto Ghose](https://anubrotoghose.github.io/anubrotoGhose/)
+* Website: [ArvohSoft.com](https://arvohsoft.github.io/arvohsoft/)
+* Email: [arvohsoft@gmail.com](mailto:arvohsoft@gmail.com)
+* GitHub: [github.com/arvohsoft](https://github.com/arvohsoft)
+* Lead Developer: [Anubroto Ghose](https://anubrotoghose.github.io/anubrotoGhose/)
 
 ---
 
-> Made with ❤️ for the developer community
+> Made with love for the developer community
 > © 2025 Arvoh Software. All rights reserved.
+
